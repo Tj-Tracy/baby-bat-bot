@@ -78,9 +78,13 @@ bot.on("message", message => {
           id: message.author.id,
           streamURL: args[0]
         }
-        let streamerUrls
-        fs.readFile('./streamUrls.json', (err, data) => {
-          if(err) console.log(err);
+        let streamerUrls;
+        fs.open('./streamUrls.json', 'r', (err, data) => {
+          if(err) {
+            console.log(err);
+            message.channel.send("Can't find the file with all the stream urls in it. Complain to TJ and his shit coding about it.");
+            return;
+          }
           streamerUrls = JSON.parse(data.toString());
           streamerUrls = {
             ...streamerUrls,
@@ -109,7 +113,11 @@ bot.on("message", message => {
 
         //read the file to find the streamer
         fs.readFile('./streamUrls.json', (err, data) => {
-          if(err) console.log(err);
+          if(err) {
+            console.log(err);
+            message.channel.send("Can't find the file with all the stream urls in it. Complain to TJ and his shit coding about it.");
+            return;
+          }
           streamerUrls = JSON.parse(data.toString());
           if(streamerUrls[message.author.id]) {
             message.channel.send(`Hey everyone go watch ${message.author.username}. They are now live at: ${streamerUrls[message.author.id].streamURL}`);
@@ -122,7 +130,7 @@ bot.on("message", message => {
       /************************************************************************************************/
       //hereboy command that everyone wanted for some reason
       case "!hereboy":
-        message.channel.send("<:pupper:418236635071643659>");
+        message.channel.send("<:pupper:420995886722711553>");
         return;
       /************************************************************************************************/
       /************************************************************************************************/

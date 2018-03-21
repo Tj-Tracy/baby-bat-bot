@@ -4,7 +4,7 @@
   "description": "bot for the baby-bat discord",
   "main": "bot.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "nodemon bot.js --ignore ./steamUrls.json --exec babel-node --presets es2015,stage-2",
     "babel": "nodemon bot.js --ignore ./steamUrls.json --exec babel-node --presets es2015,stage-2",
     "build": "babel bot.js --exec babel-node --presets es2015,stage-2 -o bot-deployable.js"
   },
