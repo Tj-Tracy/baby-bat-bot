@@ -1,0 +1,24 @@
+{
+  "name": "baby-bat-bot",
+  "version": "1.0.0",
+  "description": "bot for the baby-bat discord",
+  "main": "bot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "babel": "nodemon bot.js --ignore ./steamUrls.json --exec babel-node --presets es2015,stage-2",
+    "build": "babel bot.js --exec babel-node --presets es2015,stage-2 -o bot-deployable.js"
+  },
+  "author": "Tj Tracy",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^11.3.2"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "dotenv": "^5.0.1",
+    "nodemon": "^1.17.1"
+  }
+}
