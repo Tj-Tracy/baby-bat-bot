@@ -79,7 +79,7 @@ bot.on("message", message => {
           streamURL: args[0]
         }
         let streamerUrls;
-        fs.open('./streamUrls.json', 'r', (err, data) => {
+        fs.readFile('./streamUrls.json', (err, data) => {
           if(err) {
             console.log(err);
             message.channel.send("Can't find the file with all the stream urls in it. Complain to TJ and his shit coding about it.");
