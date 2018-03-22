@@ -120,7 +120,7 @@ bot.on("message", message => {
           }
           streamerUrls = JSON.parse(data.toString());
           if(streamerUrls[message.author.id]) {
-            message.channel.send(`Hey everyone go watch ${message.author.username}. They are now live at: ${streamerUrls[message.author.id].streamURL}`);
+            message.channel.send(`watch live at: ${streamerUrls[message.author.id].streamURL}`);
           } else {
             message.channel.send("you have to set your url with !setstream first");
           }
