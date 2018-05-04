@@ -13,6 +13,12 @@ bot.on("message", message => {
   // we dont want to parse messages from the bot itself
   if (message.author.bot) return;
 
+  if (message.content.includes('fortnite')) {
+    message.delete(); //Supposed to delete message
+    message.channel.send("Miss me with that normie shit.");
+
+  }
+
   //break up the message into pieces
   const args = message.toString().split(" ");
   const command = args.shift().toLowerCase();
@@ -133,6 +139,7 @@ bot.on("message", message => {
         message.channel.send("<:pupper:420995886722711553>");
         return;
       /************************************************************************************************/
+
       /************************************************************************************************/
       //the no command message
       default:
