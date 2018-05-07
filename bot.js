@@ -13,15 +13,18 @@ bot.on("message", message => {
   // we dont want to parse messages from the bot itself
   if (message.author.bot) return;
 
-  if (message.content.includes('fortnite')) {
-    message.delete(); //Supposed to delete message
-    message.channel.send("Miss me with that normie shit.");
-
-  }
-
+  
+ 
   //break up the message into pieces
   const args = message.toString().split(" ");
   const command = args.shift().toLowerCase();
+
+  const noSpace = message.toString().toLowerCase().replace(/\s/g,'');
+  console.log(noSpace);
+  if (noSpace.includes('fortnite') || noSpace.includes('fortnight')) {
+    message.delete(); //Supposed to delete message
+    message.channel.send("Miss me with that normie shit.");
+  }
 
   //check if the first character is a !
   if (command[0] === "!") {
