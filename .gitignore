@@ -60,3 +60,5 @@ typings/
 # the streamer urls file
 ./streamerUrls.json
 
+#ES5 compiled bot 
+./bot-deployable.js

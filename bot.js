@@ -20,7 +20,6 @@ bot.on("message", message => {
   const command = args.shift().toLowerCase();
 
   const noSpace = message.toString().toLowerCase().replace(/\s/g,'');
-  console.log(noSpace);
   if (noSpace.includes('fortnite') || noSpace.includes('fortnight')) {
     message.delete(); //Supposed to delete message
     message.channel.send("Miss me with that normie shit.");
@@ -99,7 +98,6 @@ bot.on("message", message => {
             ...streamerUrls,
             [streamer.id]: streamer
           }
-          console.log(streamerUrls);
           fs.writeFile('./streamUrls.json', JSON.stringify(streamerUrls), (err) => {
             if(err) {
               console.log(err);
