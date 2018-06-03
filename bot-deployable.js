@@ -33,6 +33,13 @@ bot.on("message", function (message) {
   var args = message.toString().split(" ");
   var command = args.shift().toLowerCase();
 
+  var noSpace = message.toString().toLowerCase().replace(/\s/g, '');
+  console.log(noSpace);
+  if (noSpace.includes('fortnite') || noSpace.includes('fortnight')) {
+    message.delete(); //Supposed to delete message
+    message.channel.send("Miss me with that normie shit.");
+  }
+
   //check if the first character is a !
   if (command[0] === "!") {
     switch (command) {
@@ -87,7 +94,11 @@ bot.on("message", function (message) {
         };
         var streamerUrls = void 0;
         _fs2.default.readFile('./streamUrls.json', function (err, data) {
-          if (err) console.log(err);
+          if (err) {
+            console.log(err);
+            message.channel.send("Can't find the file with all the stream urls in it. Complain to TJ and his shit coding about it.");
+            return;
+          }
           streamerUrls = JSON.parse(data.toString());
           streamerUrls = _extends({}, streamerUrls, _defineProperty({}, streamer.id, streamer));
           console.log(streamerUrls);
@@ -115,10 +126,14 @@ bot.on("message", function (message) {
 
         //read the file to find the streamer
         _fs2.default.readFile('./streamUrls.json', function (err, data) {
-          if (err) console.log(err);
+          if (err) {
+            console.log(err);
+            message.channel.send("Can't find the file with all the stream urls in it. Complain to TJ and his shit coding about it.");
+            return;
+          }
           streamerUrls = JSON.parse(data.toString());
           if (streamerUrls[message.author.id]) {
-            message.channel.send("Hey everyone go watch " + message.author.username + ". They are now live at: " + streamerUrls[message.author.id].streamURL);
+            message.channel.send("watch live at: " + streamerUrls[message.author.id].streamURL);
           } else {
             message.channel.send("you have to set your url with !setstream first");
           }
@@ -128,9 +143,10 @@ bot.on("message", function (message) {
       /************************************************************************************************/
       //hereboy command that everyone wanted for some reason
       case "!hereboy":
-        message.channel.send("<:pupper:418236635071643659>");
+        message.channel.send("<:pupper:420995886722711553>");
         return;
       /************************************************************************************************/
+
       /************************************************************************************************/
       //the no command message
       default:
