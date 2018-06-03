@@ -6,7 +6,8 @@
   "scripts": {
     "test": "nodemon bot.js --ignore ./steamUrls.json --exec babel-node --presets es2015,stage-2",
     "babel": "nodemon bot.js --ignore ./steamUrls.json --exec babel-node --presets es2015,stage-2",
-    "build": "babel bot.js --exec babel-node --presets es2015,stage-2 -o bot-deployable.js"
+    "build": "babel bot.js --exec babel-node --presets es2015,stage-2 -o bot-deployable.js",
+    "start": "nodemon bot-deployable.js"
   },
   "author": "Tj Tracy",
   "license": "ISC",
